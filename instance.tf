@@ -15,6 +15,12 @@ resource "aws_instance" "web" {
     Name = "webapp"
   }
 }
+
+resource "aws_eip" "IP" {
+  vpc = true
+
+  public_ipv4_pool = "amazon"
+}
  /* //this is use for attach elastic_IPaddress
   resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.web.id
